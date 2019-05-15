@@ -19,7 +19,7 @@ Nome do Pokémon seguindo as regras acima.
 
 
 Para solucionar o problema proposto foi desenvolvida uma solução totalmente em php
--2 parametros são usados a cidade e o id para usar a API do clima , deixei o id da api como uma variavel pensando que mais de uma pessoa poderia solicitar e usar seu proprio id.
--O formulario so tem um campo com pedindo para colocar a cidade , que aceita cidades com acentuação, a unica tratativa que foi feita e para caso nao seja digitada uma cidade irá buscar de campinas.
--Os nomes das variaveis tendem a ser descritivo quanto ao que tem nelas.
--Para rodar o programar no linux basta baixar os arquivos em uma pasta, acessar a pasta via terminal , rodar o comando php -S localhost:*numero da porta* e depois acessar em um navegador localhost:*numero da porta*/formulario.php
+    -2 parametros são usados a cidade e o id para usar a API do clima , deixei o id da api como uma variavel pensando que mais de uma pessoa poderia solicitar e usar seu proprio id.
+    -O formulario so tem um campo com pedindo para colocar a cidade , que aceita cidades com acentuação, a unica tratativa que foi feita e para caso nao seja digitada uma cidade irá buscar de campinas.
+    -Os nomes das variaveis tendem a ser descritivo quanto ao que tem nelas.
+    -Para rodar o programar no linux basta baixar os arquivos em uma pasta, acessar a pasta via terminal , rodar o comando php -S localhost:*numero da porta* e depois acessar em um navegador localhost:*numero da porta*/formulario.php
