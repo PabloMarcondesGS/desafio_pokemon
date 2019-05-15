@@ -1,20 +1,24 @@
 <?PHP
-    //dados para montar o request
-    $cidade = $_POST['cidade'];
+    ##dados para montar o request
+    $cidade = $_POST['cidade'] ? $_POST['cidade'] : 'campinas';
     $idApi = 'd1e6ca2a8965e8fa5b858078444aa398';
-    //resquest usando os parametros recebidos
+    ##resquest usando os parametros recebidos
     $respostaApi = file_get_contents('https://api.openweathermap.org/data/2.5/weather?q=' .$cidade. '&appid='.$idApi) ;
     $respostaApi = json_decode($respostaApi);
-    //convertendo temperatura de Kelvin para Celsios
+    ##convertendo temperatura de Kelvin para Celsios
     $temperaturaKelvin = $respostaApi->main->temp;
     $temperaturaCelsios = ($temperaturaKelvin-273.15);
-    //condição de chuva
+
+    ##condição de chuva
+    ##Transformando a resposta da api em um array para pode acessar o obejeto
     $respostaApi = json_decode(json_encode($respostaApi),true);
     $chuva = ($respostaApi['weather'][0]['main']);
 
+    ##Logica para sempre que estiver chovendo buscar pokemons eletricos
     if($chuva == 'rain'){
         $tipoPokemon='electric';
     }else{
+        ##logica para buscar pokemons de acordo com o que foi pedido 
         if($temperaturaCelsios<5){
             $tipoPokemon='ice';
         }elseif(($temperaturaCelsios>=5) &&($temperaturaCelsios<10)){
@@ -34,6 +38,7 @@
         }
     }
 
+    ##chamada da api que traz os nomes dos pokemons
     $pokemon = file_get_contents('https://pokeapi.co/api/v2/type/'.$tipoPokemon);
     $pokemon = json_decode($pokemon);
     $pokemon = $pokemon->pokemon;
